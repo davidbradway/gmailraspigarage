@@ -7,13 +7,13 @@
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: Gmail garage opener
-# Description:       This service watches my gmail account Garage label for messages that arrive there from the filter I created that auto-labels messages that are sent to my gmail address plus garage at gmail dot com
+# Description:       This service watches my gmail account for messages with the Garage label. I created a filter that auto-labels messages that are sent to my gmail address plus garage at gmail dot com
 ### END INIT INFO
 
 # see http://blog.scphillips.com/2013/07/getting-a-python-script-to-run-in-the-background-as-a-service-on-boot/
 
 # Change the next 3 lines to suit where you install your script and what you want to call it
-DIR=/home/pi
+DIR=/home/pi/repos/raspigmail
 DAEMON=$DIR/raspigmail.py
 DAEMON_NAME=raspigmail
 
