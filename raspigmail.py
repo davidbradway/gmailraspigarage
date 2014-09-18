@@ -22,7 +22,7 @@ while True:
     
     if newmails > NEWMAIL_OFFSET: 
         # if the newest email was from me, then open garage
-        if feedparser.parse("https://" + USERNAME + ":" + PASSWORD +"@mail.google.com/gmail/feed/atom/garage")["entries"][-1]["author_detail"]["email"]  == USERNAME:
+        if feedparser.parse("https://" + USERNAME + ":" + PASSWORD +"@mail.google.com/gmail/feed/atom/garage")["entries"][-1]["author_detail"]["email"]  == USERNAME + '@gmail.com':
             print "garage move"
             if ISPI:
                 GPIO.output(GARAGE, False)
