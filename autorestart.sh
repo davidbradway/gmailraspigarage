@@ -1,10 +1,10 @@
 #!/bin/bash
-service raspigmail.sh status| grep 'raspigmail.sh start/running' > /dev/null 2>&1
+service raspigmail.sh status| grep FAIL > /dev/null 2>&1
 if [ $? != 0 ]
 then
-    echo "then"
+    echo "Still running"
     sudo service raspigmail.sh status
 else
-    echo "else"
+    echo "FAILED"
     sudo service raspigmail.sh start
 fi
