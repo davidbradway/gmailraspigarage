@@ -28,6 +28,8 @@ To run the script, the dependencies are Python and Nmap, which can be found at t
     sudo cp raspigmail.sh /etc/init.d/
     sudo chmod 755 /etc/init.d/raspigmail.sh 
     sudo update-rc.d raspigmail.sh defaults
+    # If you ever want to remove the script from start-up, run the following command:
+    sudo update-rc.d -f raspigmail.sh remove
 
     sudo /etc/init.d/raspigmail.sh start
     sudo /etc/init.d/raspigmail.sh status
