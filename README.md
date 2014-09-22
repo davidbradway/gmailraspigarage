@@ -34,3 +34,8 @@ To run the script, the dependencies are Python and Nmap, which can be found at t
     sudo /etc/init.d/raspigmail.sh start
     sudo /etc/init.d/raspigmail.sh status
     sudo /etc/init.d/raspigmail.sh stop
+
+    sudo crontab -e
+    # Add this to CRON
+    # m h  dom mon dow   command
+    #*/1 * * * * /home/pi/repos/raspigmail/autorestart.sh
