@@ -10,7 +10,6 @@ import nmap                # import nmap.py module dependency
 import time
 import feedparser
 
-
 ISPI            = 1        # Is this being run on a Raspberry Pi?
 DEBUG           = 0        # Should I print Debugging text output?
 USERNAME        = "" # just the part before the @ sign, add yours here
@@ -62,13 +61,13 @@ while True:
                                     GPIO.output(GARAGE, False)
                                     time.sleep(1)
                                     GPIO.output(GARAGE, True)
-                                found = 1
-                                break
-                    if found:
-                        break
-                    else:
-                        print "not found"
-                        time.sleep(5)
+                            found = 1
+                            break
+                if found:
+                    break
+                else:
+                    print "not found"
+                    time.sleep(5)
     NEWMAIL_OFFSET = newmails
     time.sleep(MAIL_CHECK_FREQ)
 
