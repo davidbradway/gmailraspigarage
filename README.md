@@ -40,6 +40,9 @@ To run the script, the dependencies are Python and Nmap, which can be found at t
     # m h  dom mon dow   command
     #* * * * * /home/pi/repos/raspigmail/autorestart.sh
 
+    # Crontab with logging
+    #* * * * * /bin/bash /home/pi/repos/raspigmail/autorestart.sh >> /home/pi/myscript.log 2>&1
+
     # check the cron log
     grep CRON /var/log/syslog
 

@@ -43,22 +43,22 @@ while True:
         print newmails, "labeled mail commands!"
     
     if newmails > NEWMAIL_OFFSET: 
-        # if the newest email was from me, then open garage
+        # if the newest email was from me, then continue process to open garage
         if feedparser.parse("https://" + USERNAME + ":" + PASSWORD +"@mail.google.com/gmail/feed/atom/garage")["entries"][-1]["author_detail"]["email"]  == USERNAME + '@gmail.com':
-            print "Wait 5 minutes for phone to connect"
-            if ISPI:
-                for x in range(0, 60):
-                    print "Try %d" % (x+1)
-                    found = 0
-                    nm.scan(hosts='192.168.1.1-18', arguments='-sP -n')
-                    for h in nm.all_hosts():
-                        if 'mac' in nm[h]['addresses']:
-                            #print(nm[h]['addresses']['mac'])
-                            if nm[h]['addresses']['mac'] == WATCHEDMAC:
-                                print "found MAC: " + nm[h]['addresses']['mac']
-                                # open door
-                                if MOVE_YES:
-                                    print "moving door"
+            print "Watch 5 minutes for phone to connect"
+            for x in range(0, 60):
+                print "Try %d" % (x+1)
+                found = 0
+                nm.scan(hosts='192.168.1.1-18', arguments='-sP -n')
+                for h in nm.all_hosts():
+                    if 'mac' in nm[h]['addresses']:
+                        #print(nm[h]['addresses']['mac'])
+                        if nm[h]['addresses']['mac'] == WATCHEDMAC:
+                            print "found MAC: " + nm[h]['addresses']['mac']
+                            # open door
+                            if MOVE_YES:
+                                print "moving door"
+                                if ISPI:
                                     GPIO.output(GARAGE, False)
                                     time.sleep(1)
                                     GPIO.output(GARAGE, True)
@@ -71,3 +71,4 @@ while True:
                         time.sleep(5)
     NEWMAIL_OFFSET = newmails
     time.sleep(MAIL_CHECK_FREQ)
+
